@@ -6,7 +6,7 @@ class Home extends Component {
     super(props);
     this.state = {
       value: "",
-      output: {} ,
+      output: {},
     };
 
     this.handleFind = this.handleFind.bind(this);
