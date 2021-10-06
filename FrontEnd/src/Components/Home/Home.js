@@ -6,11 +6,12 @@ class Home extends Component {
     super(props);
     this.state = {
       value: "",
-      output: {},
+      output: {results:[]},
     };
 
     this.handleFind = this.handleFind.bind(this);
   }
+
   handleFind() {
     var axios = require("axios").default;
 
@@ -34,9 +35,9 @@ class Home extends Component {
 
     axios
       .request(options)
-      .then(function (response) {
-        this.setState(object) = response.data;
-        console.log(this.state.object);
+      .then( (response) => {
+        this.setState({output:response.data, value:""});
+        console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -48,13 +49,15 @@ class Home extends Component {
       <div className="App">
         <h1>Behlod Where you can stream it?</h1>
         <form action="" onSubmit= {(e) =>  {e.preventDefault(); this.handleFind()}}>
-          <input type="text" placeholder="Input here" name="find" onChange={({target: {value}}) => this.setState({value})}></input>
+          <input type="text" value={this.state.value} placeholder="Input here" name="find" onChange={({target: {value}}) => this.setState({value})}></input>
           <input
             type="submit"
             value="Find"
           ></input>
         </form> 
-        <Found/>
+        {this.state.output.results.map((data, i) =>(
+            <Found data = {data} key= {i} />
+        ))}
       </div>
     );
   }
