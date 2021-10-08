@@ -20,24 +20,28 @@ class Found extends Component {
             <img
             //Moive Poster
               className="locandina"
-              src="https://movieplayer.net-cdn.it/t/images/2017/12/20/bright_jpg_191x283_crop_q85.jpg" 
+              src={this.state.data.posterURLs}
               alt="Failed"
             />
-
             <h1>
                 {this.state.data.title}
             </h1> 
-            <h4> Year of realse , Director </h4>
-            <span className="minutes"> 213 mins Length </span>
-            <p className="type">Genres...</p>
+            <h4>  {this.state.data.year}, {this.state.data.significants[0]}  </h4>
+            <span className="minutes"> {this.state.data.runtime}  minutes </span>
           </div>
           <div className="movie_desc">
             <p className="text">
-              Moive def
+            {this.state.data.overview}
             </p>
           </div>
         </div>
-        <div className="blur_back bright_back" src={this.state.data.backDropUrl[0]}></div>
+        <div className="blur_back bright_back" >
+        <img
+            //Moive BackDrop
+              src= {this.state.data.backDropURLs}
+              alt="Failed"
+            />
+        </div>
       </div>
     );
   }

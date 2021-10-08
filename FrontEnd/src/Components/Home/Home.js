@@ -22,7 +22,6 @@ class Home extends Component {
         country: "us",
         service: "netflix",
         type: "movie",
-        genre: "18",
         page: "1",
         keyword: this.state.value,
         language: "en",
