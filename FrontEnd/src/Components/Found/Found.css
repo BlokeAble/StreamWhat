@@ -44,7 +44,7 @@ body {
         color: #9ac7fa;
         font-weight: 400;
       }
-      .minutes {
+      .minutes, .streamService{
         display: inline-block;
         margin-top: 10px;
         color: #fff;
@@ -52,6 +52,7 @@ body {
         border-radius: 5px;
         border: 1px solid rgba(255, 255, 255, 0.13);
       }
+
       .type {
         display: inline-block;
         color: #cee4fd;
@@ -73,8 +74,7 @@ body {
     .movie_social {
       height: 10%;
       padding-left: 15px;
-      padding-bottom: 20px;
-     
+      padding-bottom: 20px; 
     }
 
     ul {
