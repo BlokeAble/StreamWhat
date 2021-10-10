@@ -36,7 +36,7 @@ class Home extends Component {
       .request(options)
       .then( (response) => {
         this.setState({output:response.data, value:""});
-        console.log(response.data);
+        //console.log(response.data);
       })
       .catch(function (error) {
         console.error(error);
@@ -46,7 +46,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Behlod Where you can stream it?</h1>
+        <h1>Stream What?</h1>
         <form action="" onSubmit= {(e) =>  {e.preventDefault(); this.handleFind()}}>
           <input type="text" value={this.state.value} placeholder="Input here" name="find" onChange={({target: {value}}) => this.setState({value})}></input>
           <input

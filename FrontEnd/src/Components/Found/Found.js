@@ -20,9 +20,10 @@ class Found extends Component {
             <img
             //Moive Poster
               className="locandina"
-              src={this.state.data.posterURLs}
+              src={this.state.data.posterURLs[500]}
               alt="Failed"
             />
+            {console.log(this.state.data.posterURLs)}
             <h1>
                 {this.state.data.title}
             </h1> 
@@ -35,10 +36,9 @@ class Found extends Component {
             </p>
           </div>
         </div>
-        <div className="blur_back bright_back" >
+        <div className="blur_back">
         <img
-            //Moive BackDrop
-              src= {this.state.data.backDropURLs}
+              src ={this.state.data.backdropURLs[1280]}
               alt="Failed"
             />
         </div>
