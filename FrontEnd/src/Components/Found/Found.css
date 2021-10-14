@@ -34,7 +34,7 @@ body {
     .movie_header {
       position: relative;
       padding: 25px;
-      height: 40%;
+      height: 30%;
     }
       h1 {
         color: #fff;
@@ -67,8 +67,8 @@ body {
       }
 
     .movie_desc {
-      padding: 25px;
-      height: 50%;
+      padding: 15px;
+      height: 25%;
       color: #cfd6e1;
     }
     .movie_social {

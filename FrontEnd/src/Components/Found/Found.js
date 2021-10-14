@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import "./Found.css";
 
+
 class Found extends Component {
   state = {
     data: this.props.data,
+    service: Object.keys(this.props.data.streamingInfo)[0],
+    region: Object.keys(this.props.data.streamingInfo[Object.keys(this.props.data.streamingInfo)[0]])[0]
   };
   componentDidUpdate(prevProp) {
     if (this.props.data !== prevProp.data) {
-      this.setState({ data: this.props.data });
+      this.setState({
+         data: this.props.data,
+         service: Object.keys(this.props.data.streamingInfo)[0],
+         region: Object.keys(this.props.data.streamingInfo[Object.keys(this.props.data.streamingInfo)[0]])[0]
+        });
     }
   }
   render() {
@@ -23,30 +30,40 @@ class Found extends Component {
             />
             <h1>{this.state.data.title}</h1>
             <h4>
-              {" "}
               {this.state.data.year}, {this.state.data.significants[0]}{" "}
             </h4>
             <span className="minutes"> {this.state.data.runtime} minutes </span>
-            <span className="streamService">
-              {Object.keys(this.state.data.streamingInfo)[0]}
-            </span>
+            <span className="streamService"> {this.state.service} </span>
           </div>
           <div className="movie_desc">
             <p className="text">{this.state.data.overview}</p>
           </div>
-        </div>
-        <div class="movie_social">
-          <ul>
-            <li>
-              <i class="material-icons">share</i>
-            </li>
-            <li>
-              <i class="material-icons"></i>
-            </li>
-            <li>
-              <i class="material-icons">chat_bubble</i>
-            </li>
-          </ul>
+          <div class="movie_rating">
+            <ul>
+              <li>
+                  {this.state.data.imdbRating}
+              </li>
+              <li>
+                  {this.state.data.tmdbRating}
+              </li>
+            </ul>
+          </div>
+          <div class="movie_social">
+            <ul>
+              <li>
+              <a  href={this.state.data.streamingInfo[this.state.service][this.state.region].link} rel="noreferrer"  target="_blank" class="gg-clapper-board"></a>
+              </li>
+              <li>
+                <a href={"https://www.youtube.com/embed/"+this.state.data.video}  rel="noreferrer" target="_blank" class="gg-youtube"></a>
+              </li>
+              <li>
+                <a href={"https://www.imdb.com/title/" +this.state.data.imdbID} rel="noreferrer" target="_blank" >IMDb</a>
+              </li>
+              <li>
+              <a href={"https://www.themoviedb.org/movie/"+this.state.data.tmdbID} rel="noreferrer" target="_blank" >TMDB</a>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="blur_back">
           <img src={this.state.data.backdropURLs[1280]} alt="Failed" />
