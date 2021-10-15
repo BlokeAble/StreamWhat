@@ -51,7 +51,7 @@ class Found extends Component {
               {this.state.data.year}, {this.state.data.significants[0]}{" "}
             </h4>
             <span className="minutes"> {this.state.data.runtime} minutes </span>
-            <span className="streamService"> { fixService(this.state.service)} </span>
+            <span className="streamService"> {this.state.service} </span>
           </div>
           <div className="movie_desc">
             <p className="text">{this.state.data.overview}</p>
