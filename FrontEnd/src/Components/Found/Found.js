@@ -3,6 +3,11 @@ import Display from "../Display/Display";
 import "./Found.css";
 
 class Found extends Component {
+  constructor(props) {
+    super(props);
+    this.fixService= this.fixService.bind(this);
+  }
+
   state = {
     data: this.props.data,
     service: Object.keys(this.props.data.streamingInfo)[0],
@@ -12,6 +17,11 @@ class Found extends Component {
       ]
     )[0],
   };
+
+  fixService(str){
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   componentDidUpdate(prevProp) {
     if (this.props.data !== prevProp.data) {
       this.setState({
@@ -23,10 +33,6 @@ class Found extends Component {
           ]
         )[0],
       });
-    }
-    else
-    {
-      <Display/>
     }
   }
   render() {
@@ -45,7 +51,7 @@ class Found extends Component {
               {this.state.data.year}, {this.state.data.significants[0]}{" "}
             </h4>
             <span className="minutes"> {this.state.data.runtime} minutes </span>
-            <span className="streamService"> {this.state.service} </span>
+            <span className="streamService"> { fixService(this.state.service)} </span>
           </div>
           <div className="movie_desc">
             <p className="text">{this.state.data.overview}</p>
