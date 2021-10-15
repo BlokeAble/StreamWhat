@@ -35,7 +35,11 @@ class Home extends Component {
     axios
       .request(options)
       .then( (response) => {
+        console.log(response.data.results.title);
+
+        //if(response.data.title === this.state.value)        
         this.setState({output:response.data, value:""});
+
         //console.log(response.data);
       })
       .catch(function (error) {
