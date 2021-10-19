@@ -7,6 +7,13 @@ body {
   font-weight: 400;
 }
 
+.overview{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
 .movie_card {
   position: relative;
   display: block;

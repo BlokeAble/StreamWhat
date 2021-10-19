@@ -1,6 +1,6 @@
 {
-  "name": "Getting Started Example",
-  "description": "Build an Extension!",
+  "name": "Stream What?",
+  "description": "Finding where you can stream it",
   "version": "1.0",
   "manifest_version": 3,
   "background": {

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Display from "../Display/Display";
+import Fail from "../Fail/Fail";
+
 import "./Found.css";
 
 class Found extends Component {
@@ -23,6 +25,7 @@ class Found extends Component {
   }
 
   componentDidUpdate(prevProp) {
+    <Display/>
     if (this.props.data !== prevProp.data) {
       this.setState({
         data: this.props.data,
@@ -33,6 +36,9 @@ class Found extends Component {
           ]
         )[0],
       });
+    }
+    else if((this.props.data !== prevProp.data) === undefined){
+      <Fail/>
     }
   }
   render() {
@@ -51,10 +57,10 @@ class Found extends Component {
               {this.state.data.year}, {this.state.data.significants[0]}{" "}
             </h4>
             <span className="minutes"> {this.state.data.runtime} minutes </span>
-            <span className="streamService"> {this.state.service} </span>
+            <span className="streamService"> {this.fixService(this.state.service)} </span>
           </div>
           <div className="movie_desc">
-            <p className="text">{this.state.data.overview}</p>
+            <p className="overview">{this.state.data.overview}</p>
           </div>
           <div class="movie_social">
             <ul>
@@ -67,8 +73,9 @@ class Found extends Component {
                   }
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-screen-wide"
-                ></a>
+                  class="gg-screen-wide icon"
+
+                > </a>
               </li>
               <li>
                 <a
@@ -77,8 +84,9 @@ class Found extends Component {
                   }
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-youtube"
-                ></a>
+                  class="gg-youtube icon"
+
+                > </a>
               </li>
               <li>
                 <a
@@ -92,9 +100,7 @@ class Found extends Component {
               </li>
               <li>
                 <a
-                  href={
-                    "https://www.themoviedb.org/movie/" + this.state.data.tmdbID
-                  }
+                  href={"https://www.themoviedb.org/movie/" + this.state.data.tmdbID}
                   rel="noreferrer"
                   target="_blank"
                 >

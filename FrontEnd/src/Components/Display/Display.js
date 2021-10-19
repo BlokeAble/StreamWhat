@@ -31,16 +31,16 @@ class Found extends Component {
                   href= "https://www.netflix.com/title/80091879/"
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-screen-wide"
-                ></a>
+                  class="gg-screen-wide icon"
+                > </a>
               </li>
               <li>
                 <a
                   href="https://www.youtube.com/embed/Q_P8WCbhC6s"
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-youtube"
-                ></a>
+                  class="gg-youtube icon"
+                > </a>
               </li>
               <li>
                 <a
