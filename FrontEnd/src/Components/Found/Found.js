@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import Display from "../Display/Display";
-import Fail from "../Fail/Fail";
-
 import "./Found.css";
 
 class Found extends Component {
   constructor(props) {
     super(props);
     this.fixService= this.fixService.bind(this);
+    this.reFormat = this.reFormat.bind(this);
   }
 
   state = {
@@ -24,8 +22,11 @@ class Found extends Component {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 
+  reFormat(double){
+    return double/10;
+  }
+
   componentDidUpdate(prevProp) {
-    <Display/>
     if (this.props.data !== prevProp.data) {
       this.setState({
         data: this.props.data,
@@ -36,9 +37,6 @@ class Found extends Component {
           ]
         )[0],
       });
-    }
-    else if((this.props.data !== prevProp.data) === undefined){
-      <Fail/>
     }
   }
   render() {
@@ -93,21 +91,27 @@ class Found extends Component {
                   href={"https://www.imdb.com/title/" + this.state.data.imdbID}
                   rel="noreferrer"
                   target="_blank"
+                  className= "IMDb_Rating"
                 >
                   IMDb
                 </a>
-                {"  "+this.state.data.imdbRating +"%"}
               </li>
+              <il>
+                <b className="White">{this.reFormat(this.state.data.tmdbRating)}</b> <b className="Rating">/10</b>
+              </il>
               <li>
                 <a
                   href={"https://www.themoviedb.org/movie/" + this.state.data.tmdbID}
                   rel="noreferrer"
                   target="_blank"
+                  className= "TMDB_Rating"
                 >
                   TMDB
                 </a>
-                {"  "+this.state.data.tmdbRating +"%"}
               </li>
+              <il>
+                <b className="White">{this.reFormat(this.state.data.tmdbRating)}</b> <b className="Rating">/10</b>
+              </il>
             </ul>
           </div>
         </div>

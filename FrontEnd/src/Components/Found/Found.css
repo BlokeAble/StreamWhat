@@ -7,6 +7,24 @@ body {
   font-weight: 400;
 }
 
+.IMDb_Rating{
+  text-decoration: none;
+  color:rgb(200,170,30);
+}
+
+.TMDB_Rating{
+  text-decoration: none;
+  color:rgb(34, 202, 231);
+}
+
+.Rating{
+  color:rgb(70,70,70);
+}
+
+.White{
+  color: #fff;
+}
+
 .overview{
   display: -webkit-box;
   overflow: hidden;
