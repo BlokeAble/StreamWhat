@@ -25,6 +25,14 @@ body {
   color: #fff;
 }
 
+.Green{
+  color: rgb(3, 92, 0);
+}
+
+.youtube{
+  color:#b40101;
+}
+
 .overview{
   display: -webkit-box;
   overflow: hidden;

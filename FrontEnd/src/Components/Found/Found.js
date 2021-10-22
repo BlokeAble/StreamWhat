@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import Fail from "../Fail/Fail";
+import Display from "../Display/Display";
 import "./Found.css";
+
 
 class Found extends Component {
   constructor(props) {
@@ -11,11 +14,7 @@ class Found extends Component {
   state = {
     data: this.props.data,
     service: Object.keys(this.props.data.streamingInfo)[0],
-    region: Object.keys(
-      this.props.data.streamingInfo[
-        Object.keys(this.props.data.streamingInfo)[0]
-      ]
-    )[0],
+    region: Object.keys(this.props.data.streamingInfo[Object.keys(this.props.data.streamingInfo)[0]])[0],
   };
 
   fixService(str){
@@ -27,18 +26,19 @@ class Found extends Component {
   }
 
   componentDidUpdate(prevProp) {
+    <Display/>
     if (this.props.data !== prevProp.data) {
       this.setState({
         data: this.props.data,
         service: Object.keys(this.props.data.streamingInfo)[0],
-        region: Object.keys(
-          this.props.data.streamingInfo[
-            Object.keys(this.props.data.streamingInfo)[0]
-          ]
-        )[0],
+        region: Object.keys( this.props.data.streamingInfo[Object.keys(this.props.data.streamingInfo)[0]])[0],
       });
     }
+    else{
+      <Fail/>
+    }
   }
+
   render() {
     return (
       <div className="movie_card">
@@ -64,26 +64,19 @@ class Found extends Component {
             <ul>
               <li>
                 <a
-                  href={
-                    this.state.data.streamingInfo[this.state.service][
-                      this.state.region
-                    ].link
-                  }
+                  href={this.state.data.streamingInfo[this.state.service][this.state.region].link}
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-screen-wide icon"
+                  className="gg-screen-wide icon, Green"
 
                 > </a>
               </li>
               <li>
                 <a
-                  href={
-                    "https://www.youtube.com/embed/" + this.state.data.video
-                  }
+                  href={"https://www.youtube.com/embed/" + this.state.data.video}
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-youtube icon"
-
+                  className="gg-youtube icon, youtube"
                 > </a>
               </li>
               <li>

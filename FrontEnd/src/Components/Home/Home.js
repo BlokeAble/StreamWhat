@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Fail from "../Fail/Fail";
-import Display from "../Display/Display";
 import Found from "../Found/Found";
 
 class Home extends Component {
@@ -37,16 +35,7 @@ class Home extends Component {
     axios
       .request(options)
       .then( (response) => {
-        console.log(response.data)
-        if(response.data.total_pages === 0)
-        {
-          <Fail/>
-          console.log("Failed")
-        }
-         else if(response.data.results[0].title.toLowerCase() === this.state.value.toLowerCase())     
-        {
           this.setState({output:response.data, value:""});
-        }   
       })
       .catch(function (error) {
         console.error(error);
@@ -67,8 +56,6 @@ class Home extends Component {
         {this.state.output.results.map((data, i) =>(
             <Found data = {data} key= {i} />
         ))}
-        <Fail/>
-        <Display/>
       </div>
     );
   }
