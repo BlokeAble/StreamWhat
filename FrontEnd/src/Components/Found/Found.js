@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Fail from "../Fail/Fail";
+//import Fail from "../Fail/Fail";
 import "./Found.css";
 
 

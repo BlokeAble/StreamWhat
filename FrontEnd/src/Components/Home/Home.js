@@ -54,7 +54,6 @@ class Home extends Component {
             value="Find"
           ></input>
         </form>
-        <Display/> 
         {this.state.output.results.map((data, i) =>(
             <Found data = {data} key= {i} />
         ))}
