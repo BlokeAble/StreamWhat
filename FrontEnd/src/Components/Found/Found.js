@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Fail from "../Fail/Fail";
-import Display from "../Display/Display";
 import "./Found.css";
 
 
@@ -26,16 +25,12 @@ class Found extends Component {
   }
 
   componentDidUpdate(prevProp) {
-    <Display/>
     if (this.props.data !== prevProp.data) {
       this.setState({
         data: this.props.data,
         service: Object.keys(this.props.data.streamingInfo)[0],
         region: Object.keys( this.props.data.streamingInfo[Object.keys(this.props.data.streamingInfo)[0]])[0],
       });
-    }
-    else{
-      <Fail/>
     }
   }
 

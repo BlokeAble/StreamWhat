@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Found from "../Found/Found";
+import Display from "../Display/Display";
 
 class Home extends Component {
   constructor(props) {
@@ -52,7 +53,8 @@ class Home extends Component {
             type="submit"
             value="Find"
           ></input>
-        </form> 
+        </form>
+        <Display/> 
         {this.state.output.results.map((data, i) =>(
             <Found data = {data} key= {i} />
         ))}

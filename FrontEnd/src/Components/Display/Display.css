@@ -7,6 +7,39 @@ body {
   font-weight: 400;
 }
 
+.IMDb_Rating{
+  text-decoration: none;
+  color:rgb(200,170,30);
+}
+
+.TMDB_Rating{
+  text-decoration: none;
+  color:rgb(34, 202, 231);
+}
+
+.Rating{
+  color:rgb(70,70,70);
+}
+
+.White{
+  color: #fff;
+}
+
+.Green{
+  color: rgb(3, 92, 0);
+}
+
+.youtube{
+  color:#b40101;
+}
+
+.overview{
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
 .movie_card {
   position: relative;
   display: block;

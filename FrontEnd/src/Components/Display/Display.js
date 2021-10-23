@@ -14,15 +14,15 @@ class Found extends Component {
               src= "https://image.tmdb.org/t/p/w780/zHzBTd502IZf60x8n2g0TB01vPF.jpg"
               alt="Failed"
             />
-            <h1> Hush </h1>
+            <h1> Movie Title </h1>
             <h4>
-            2016, Mike Flanagan
+            Time, Director 
             </h4>
-            <span className="minutes"> 82 minutes</span>
-            <span className="streamService"> Netflix </span>
+            <span className="minutes"> Time in minutes</span>
+            <span className="streamService"> Service </span>
           </div>
           <div className="movie_desc">
-            <p className="text"> A deaf woman is stalked by a psychotic killer in her secluded home.</p>
+            <p className="text"> Movie overview</p>
           </div>
           <div class="movie_social">
             <ul>
@@ -31,7 +31,8 @@ class Found extends Component {
                   href= "https://www.netflix.com/title/80091879/"
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-screen-wide icon"
+                  className="gg-screen-wide icon, Green"
+
                 > </a>
               </li>
               <li>
@@ -39,29 +40,35 @@ class Found extends Component {
                   href="https://www.youtube.com/embed/Q_P8WCbhC6s"
                   rel="noreferrer"
                   target="_blank"
-                  class="gg-youtube icon"
+                  className="gg-youtube icon, youtube"
                 > </a>
               </li>
               <li>
                 <a
-                  href= "https://www.imdb.com/title/tt5022702" 
+                  href= "https://www.imdb.com/title/tt5022702"
                   rel="noreferrer"
                   target="_blank"
+                  className= "IMDb_Rating"
                 >
                   IMDb
                 </a>
-                " 0%"
               </li>
+              <il>
+                <b className="White">5.5</b> <b className="Rating">/10</b>
+              </il>
               <li>
                 <a
-                  href= "https://www.themoviedb.org/movie/376570" 
+                  href= "https://www.themoviedb.org/movie/376570"
                   rel="noreferrer"
                   target="_blank"
+                  className= "TMDB_Rating"
                 >
                   TMDB
                 </a>
-               " 14%"
               </li>
+              <il>
+                <b className="White">2.5</b> <b className="Rating">/10</b>
+              </il>
             </ul>
           </div>
         </div>
