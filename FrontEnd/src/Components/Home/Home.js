@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import "./Home.css";
 import Found from "../Found/Found";
 import Display from "../Display/Display";
+import Fail from "../Fail/Fail";
 
 class Home extends Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class Home extends Component {
     this.state = {
       value: "",
       output: {results:[]},
+      error: null
     };
 
     this.handleFind = this.handleFind.bind(this);
@@ -36,7 +39,14 @@ class Home extends Component {
     axios
       .request(options)
       .then( (response) => {
-          this.setState({output:response.data, value:""});
+        if(response.data.results[0] === undefined)
+        {
+         this.setState({error:true, value:""});
+        }
+        else
+        {
+          this.setState({output:response.data, value:"", error:false});
+        }
       })
       .catch(function (error) {
         console.error(error);
@@ -46,7 +56,8 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Stream What?</h1>
+        <h1 className="title">Stream What </h1>
+        <h1 className="red">?</h1>
         <form action="" onSubmit= {(e) =>  {e.preventDefault(); this.handleFind()}}>
           <input type="text" value={this.state.value} placeholder="Input here" name="find" onChange={({target: {value}}) => this.setState({value})}></input>
           <input
@@ -54,9 +65,18 @@ class Home extends Component {
             value="Find"
           ></input>
         </form>
-        {this.state.output.results.map((data, i) =>(
+        {
+         this.state.output.results.length === 0?
+         this.state.error?
+         <Fail/>
+         :
+         <Display/>
+         :
+        this.state.output.results.map((data, i) =>(
             <Found data = {data} key= {i} />
-        ))}
+        ))
+        
+        }
       </div>
     );
   }

@@ -14,7 +14,7 @@ body {
   -webkit-box-orient: vertical;
 }
 
-.movie_card {
+.movie_card_fail{
   position: relative;
   display: block;
   width: 800px;
@@ -24,6 +24,7 @@ body {
   border-radius: 10px;
   transition: all 0.4s;
   border-style: outset;
+  border-color: rgba(255, 0, 0, 0.8);
 
   }
 
@@ -108,7 +109,7 @@ body {
 
   li:hover {
     transition: color 0.3s;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 0, 0, 0.8);
   }
   .blur_back {
     position: absolute;

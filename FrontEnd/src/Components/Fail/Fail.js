@@ -4,7 +4,7 @@ import "./Fail.css";
 class Found extends Component {
   render() {
     return (
-      <div className="movie_card">
+      <div className="movie_card_fail">
         <div className="info_section">
           <div className="movie_header">
             <img
