@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Home.css";
+import "./DropBox.css";
 import Found from "../Found/Found";
 import Display from "../Display/Display";
 import Fail from "../Fail/Fail";
@@ -9,8 +10,8 @@ class Home extends Component {
     super(props);
     this.state = {
       value: "",
-      output: {results:[]},
-      error: null
+      output: { results: [] },
+      error: null,
     };
 
     this.handleFind = this.handleFind.bind(this);
@@ -38,14 +39,11 @@ class Home extends Component {
 
     axios
       .request(options)
-      .then( (response) => {
-        if(response.data.results[0] === undefined)
-        {
-         this.setState({error:true, value:""});
-        }
-        else
-        {
-          this.setState({output:response.data, value:"", error:false});
+      .then((response) => {
+        if (response.data.results[0] === undefined) {
+          this.setState({ error: true, value: "" });
+        } else {
+          this.setState({ output: response.data, value: "", error: false });
         }
       })
       .catch(function (error) {
@@ -53,30 +51,47 @@ class Home extends Component {
       });
   }
 
+
   render() {
     return (
       <div className="App">
-        <h1 className="title">Stream What </h1>
-        <h1 className="red">?</h1>
-        <form action="" onSubmit= {(e) =>  {e.preventDefault(); this.handleFind()}}>
-          <input type="text" value={this.state.value} placeholder="Input here" name="find" onChange={({target: {value}}) => this.setState({value})}></input>
-          <input
-            type="submit"
-            value="Find"
-          ></input>
-        </form>
-        {
-         this.state.output.results.length === 0?
-         this.state.error?
-         <Fail/>
-         :
-         <Display/>
-         :
-        this.state.output.results.map((data, i) =>(
-            <Found data = {data} key= {i} />
-        ))
-        
-        }
+        <h1 className="title">Stream What ? </h1>
+
+        <div>
+          <div>
+              <form
+                action=""
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  this.handleFind();
+                }}
+              >
+                <input
+                  type="text"
+                  value={this.state.value}
+                  placeholder="Input here"
+                  name="find"
+                  onChange={({ target: { value } }) => this.setState({ value })}
+                  class="searchTerm"
+                >
+                </input>
+                <input type="submit" class="searchButton" value="Find"></input>
+              </form>
+          </div>
+        </div>
+
+
+        {this.state.output.results.length === 0 ? (
+          this.state.error ? (
+            <Fail />
+          ) : (
+            <Display />
+          )
+        ) : (
+          this.state.output.results.map((data, i) => (
+            <Found data={data} key={i} />
+          ))
+        )}
       </div>
     );
   }

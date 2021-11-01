@@ -40,7 +40,7 @@ body {
   -webkit-box-orient: vertical;
 }
 
-.movie_card {
+.movie_card_display {
   position: relative;
   display: block;
   width: 800px;
@@ -50,6 +50,7 @@ body {
   border-radius: 10px;
   transition: all 0.4s;
   border-style: outset;
+  border-color: #fff;
   }
 
 

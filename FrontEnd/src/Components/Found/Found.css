@@ -50,13 +50,10 @@ body {
   border-radius: 10px;
   transition: all 0.4s;
   border-style: outset;
+  border-color: #006616;
+  border-width: 6px;
   }
 
-
-  .movie_card:hover {
-    transform: scale(1.02);
-    transition: all 0.4s;
-  }
 
   .info_section {
     position: relative;
@@ -131,10 +128,6 @@ body {
     cursor: pointer;
   }
 
-  li:hover {
-    transition: color 0.3s;
-    color: rgba(255, 255, 255, 0.8);
-  }
   .blur_back {
     position: absolute;
     top: 0px;
@@ -166,13 +159,6 @@ body {
   }
 }
 
-#bright {
-  box-shadow: 0px 0px 150px -45px rgba(255, 51, 0, 0.5);
-}
-
-#bright:hover {
-    box-shadow: 0px 0px 120px -55px rgba(255, 51, 0, 0.5);
-  }
 
 
 @media screen and (max-width: 768px) {
