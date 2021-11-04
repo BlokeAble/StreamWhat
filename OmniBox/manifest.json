@@ -1,0 +1,18 @@
+{
+    "name": "Stream What? ",
+    "description": "Type '!' plus a search movie title ",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+      "service_worker": "background.js"
+    },
+    "omnibox": { "keyword" : "!" },
+    "action": {
+      "default_icon": {
+        "32": "Stream Icon.png"
+        }
+    },
+    "icons": {
+      "32": "Stream Icon.png"
+    }
+  }
