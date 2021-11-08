@@ -9,21 +9,25 @@
     float: "right";
 }
 
+.searchBar{
+  height: 30px;
+}
+
 .searchTerm {
   width: 30%;
+  height: 30px;
   border: 6px solid #6b0000;
   border-right: none;
-  padding: 5px;
-  height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
   color: #000000;
+  margin: 0;
 }
 
 .searchButton {
-  margin: 0px, 0px, 10px, 10px;
   width: 80px;
-  height: 45px;
+  padding: 5px;
+  height: 40px;
   border: 6px solid #6b0000;
   background: #6b0000;
   text-align: center;

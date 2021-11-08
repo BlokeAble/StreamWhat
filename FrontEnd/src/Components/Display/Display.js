@@ -24,7 +24,7 @@ class Found extends Component {
           <div className="movie_desc">
             <p className="text"> Movie overview</p>
           </div>
-          <div class="movie_social">
+          <div className="movie_social">
             <ul>
               <li>
                 <a
@@ -53,9 +53,9 @@ class Found extends Component {
                   IMDb
                 </a>
               </li>
-              <il>
+              <li>
                 <b className="White">5.5</b> <b className="Rating">/10</b>
-              </il>
+              </li>
               <li>
                 <a
                   href= "https://www.themoviedb.org/movie/376570"
@@ -66,9 +66,9 @@ class Found extends Component {
                   TMDB
                 </a>
               </li>
-              <il>
+              <li>
                 <b className="White">2.5</b> <b className="Rating">/10</b>
-              </il>
+              </li>
             </ul>
           </div>
         </div>

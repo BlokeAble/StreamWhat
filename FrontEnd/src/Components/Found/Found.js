@@ -55,7 +55,7 @@ class Found extends Component {
           <div className="movie_desc">
             <p className="overview">{this.state.data.overview}</p>
           </div>
-          <div class="movie_social">
+          <div className="movie_social">
             <ul>
               <li>
                 <a
@@ -84,9 +84,9 @@ class Found extends Component {
                   IMDb
                 </a>
               </li>
-              <il>
+              <li>
                 <b className="White">{this.reFormat(this.state.data.tmdbRating)}</b> <b className="Rating">/10</b>
-              </il>
+              </li>
               <li>
                 <a
                   href={"https://www.themoviedb.org/movie/" + this.state.data.tmdbID}
@@ -97,9 +97,9 @@ class Found extends Component {
                   TMDB
                 </a>
               </li>
-              <il>
+              <li>
                 <b className="White">{this.reFormat(this.state.data.tmdbRating)}</b> <b className="Rating">/10</b>
-              </il>
+              </li>
             </ul>
           </div>
         </div>

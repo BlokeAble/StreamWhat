@@ -25,7 +25,7 @@ class Home extends Component {
       url: "https://streaming-availability.p.rapidapi.com/search/basic",
       params: {
         country: "us",
-        service: "netflix",
+        service: "prime",
         type: "movie",
         page: "1",
         keyword: this.state.value,
@@ -57,8 +57,7 @@ class Home extends Component {
       <div className="App">
         <h1 className="title">Stream What ? </h1>
 
-        <div>
-          <div>
+          <div className="searchBar">
               <form
                 action=""
                 onSubmit={(e) => {
@@ -72,15 +71,14 @@ class Home extends Component {
                   placeholder="Input here"
                   name="find"
                   onChange={({ target: { value } }) => this.setState({ value })}
-                  class="searchTerm"
+                  className="searchTerm"
                 >
                 </input>
-                <input type="submit" class="searchButton" value="Find"></input>
+                <input type="submit" className="searchButton" value="Find"></input>
               </form>
           </div>
-        </div>
 
-
+        <div>
         {this.state.output.results.length === 0 ? (
           this.state.error ? (
             <Fail />
@@ -92,6 +90,7 @@ class Home extends Component {
             <Found data={data} key={i} />
           ))
         )}
+        </div>
       </div>
     );
   }
