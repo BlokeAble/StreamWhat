@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import "./Home.css";
-import "./DropBox.css";
+import "./Bar.scss";
 import Found from "../Found/Found";
 import Display from "../Display/Display";
 import Fail from "../Fail/Fail";
+
+
 
 class Home extends Component {
   constructor(props) {
@@ -25,7 +27,7 @@ class Home extends Component {
       url: "https://streaming-availability.p.rapidapi.com/search/basic",
       params: {
         country: "us",
-        service: "prime",
+        service: "netflix",
         type: "movie",
         page: "1",
         keyword: this.state.value,
@@ -51,46 +53,54 @@ class Home extends Component {
       });
   }
 
+  componentDidMount()
+  {
+    
+    const search = new URL(window.location.href).searchParams.get("search");
+    this.setState({value: search}, this.handleFind);
+  }
+
 
   render() {
     return (
       <div className="App">
-        <h1 className="title">Stream What ? </h1>
+        <h1 className="title">Stream What ?</h1>
 
-          <div className="searchBar">
-              <form
+       <div class="container">
+          <form
                 action=""
                 onSubmit={(e) => {
                   e.preventDefault();
                   this.handleFind();
                 }}
               >
-                <input
-                  type="text"
-                  value={this.state.value}
-                  placeholder="Input here"
-                  name="find"
-                  onChange={({ target: { value } }) => this.setState({ value })}
-                  className="searchTerm"
-                >
-                </input>
-                <input type="submit" className="searchButton" value="Find"></input>
+                  <input
+                    type="text"
+                    value={this.state.value}
+                    placeholder="Search...."
+                    name="find"
+                    onChange={({ target: { value } }) => this.setState({ value })}
+                    className="searchTerm"
+                  >
+                  </input>
+                <div class="search"></div>
               </form>
           </div>
 
         <div>
-        {this.state.output.results.length === 0 ? (
-          this.state.error ? (
-            <Fail />
+          {this.state.output.results.length === 0 ? (
+            this.state.error ? (
+              <Fail />
+            ) : (
+              <Display />
+            )
           ) : (
-            <Display />
-          )
-        ) : (
-          this.state.output.results.map((data, i) => (
-            <Found data={data} key={i} />
-          ))
-        )}
+            this.state.output.results.map((data, i) => (
+              <Found data={data} key={i} />
+            ))
+          )}
         </div>
+
       </div>
     );
   }

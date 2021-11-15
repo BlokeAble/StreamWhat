@@ -9,38 +9,6 @@
     float: "right";
 }
 
-.searchBar{
-  height: 30px;
-}
-
-.searchTerm {
-  width: 30%;
-  height: 30px;
-  border: 6px solid #6b0000;
-  border-right: none;
-  border-radius: 5px 0 0 5px;
-  outline: none;
-  color: #000000;
-  margin: 0;
-}
-
-.searchButton {
-  width: 80px;
-  padding: 5px;
-  height: 40px;
-  border: 6px solid #6b0000;
-  background: #6b0000;
-  text-align: center;
-  color: #ffff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.searchButton:hover{
-    color: #000;
-    background: #02c51c;
-}
 
 /*Resize the wrap to see the search bar change!*/
 .wrap{
