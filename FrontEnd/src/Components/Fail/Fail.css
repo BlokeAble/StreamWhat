@@ -88,13 +88,13 @@ body {
       padding-bottom: 20px; 
     }
 
-    ul {
+    .fail_ul {
         list-style: none;
         padding: 0;
       
       }
 
-  li {
+  .fail_li {
     display: inline-block;
     color: rgba(255, 255, 255, 0.4);
     transition: color 0.3s;
@@ -102,12 +102,12 @@ body {
     margin: 0 10px;
   }
 
-  i {
+  .fail_i {
     font-size: 19px;
     cursor: pointer;
   }
 
-  li:hover {
+  .fail_li:hover {
     transition: color 0.3s;
     color: rgba(255, 0, 0, 0.8);
   }

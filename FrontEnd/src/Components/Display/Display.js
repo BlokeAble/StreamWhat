@@ -25,8 +25,8 @@ class Found extends Component {
             <p className="text"> Movie overview</p>
           </div>
           <div className="movie_social">
-            <ul>
-              <li>
+            <ul className="display_ul">
+              <li className="display_li">
                 <a
                   href= "https://www.netflix.com/title/80091879/"
                   rel="noreferrer"
@@ -35,7 +35,7 @@ class Found extends Component {
 
                 > </a>
               </li>
-              <li>
+              <li className="display_li">
                 <a
                   href="https://www.youtube.com/embed/Q_P8WCbhC6s"
                   rel="noreferrer"
@@ -43,7 +43,7 @@ class Found extends Component {
                   className="gg-youtube icon, youtube"
                 > </a>
               </li>
-              <li>
+              <li className="display_li">
                 <a
                   href= "https://www.imdb.com/title/tt5022702"
                   rel="noreferrer"
@@ -53,10 +53,10 @@ class Found extends Component {
                   IMDb
                 </a>
               </li>
-              <li>
+              <li className="display_li">
                 <b className="White">5.5</b> <b className="Rating">/10</b>
               </li>
-              <li>
+              <li className="display_li">
                 <a
                   href= "https://www.themoviedb.org/movie/376570"
                   rel="noreferrer"
@@ -66,7 +66,7 @@ class Found extends Component {
                   TMDB
                 </a>
               </li>
-              <li>
+              <li className="display_li">
                 <b className="White">2.5</b> <b className="Rating">/10</b>
               </li>
             </ul>

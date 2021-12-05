@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ReactFitty } from "react-fitty";
 //import Fail from "../Fail/Fail";
 import "./Found.css";
 
@@ -6,7 +7,8 @@ import "./Found.css";
 class Found extends Component {
   constructor(props) {
     super(props);
-    this.fixService= this.fixService.bind(this);
+    
+    this.fixService = this.fixService.bind(this);
     this.reFormat = this.reFormat.bind(this);
   }
 
@@ -41,23 +43,31 @@ class Found extends Component {
           <div className="movie_header">
             <img
               //Moive Poster
-              className="locandina"
+              className="PosterImage"
               src={this.state.data.posterURLs[500]}
-              alt="Failed"
+              alt="No Img"
             />
-            <h1>{this.state.data.title}</h1>
+
+            <ReactFitty>
+              <h1 
+              className="movieTitle"> {this.state.data.title} 
+              </h1>
+            </ReactFitty>
+            
             <h4>
               {this.state.data.year}, {this.state.data.significants[0]}{" "}
             </h4>
-            <span className="minutes"> {this.state.data.runtime} minutes </span>
-            <span className="streamService"> {this.fixService(this.state.service)} </span>
+            <div className="extraInfo">
+              <span className="minutes"> {this.state.data.runtime} minutes </span>
+              <span className="streamService"> {this.fixService(this.state.service)} </span>
+            </div>
           </div>
           <div className="movie_desc">
             <p className="overview">{this.state.data.overview}</p>
           </div>
           <div className="movie_social">
-            <ul>
-              <li>
+            <ul className="found_ul">
+              <li className="found_li">
                 <a
                   href={this.state.data.streamingInfo[this.state.service][this.state.region].link}
                   rel="noreferrer"
@@ -66,7 +76,7 @@ class Found extends Component {
 
                 > </a>
               </li>
-              <li>
+              <li className="found_li">
                 <a
                   href={"https://www.youtube.com/embed/" + this.state.data.video}
                   rel="noreferrer"
@@ -74,7 +84,7 @@ class Found extends Component {
                   className="gg-youtube icon, youtube"
                 > </a>
               </li>
-              <li>
+              <li className="found_li">
                 <a
                   href={"https://www.imdb.com/title/" + this.state.data.imdbID}
                   rel="noreferrer"
@@ -84,10 +94,10 @@ class Found extends Component {
                   IMDb
                 </a>
               </li>
-              <li>
+              <li className="found_li">
                 <b className="White">{this.reFormat(this.state.data.tmdbRating)}</b> <b className="Rating">/10</b>
               </li>
-              <li>
+              <li className="found_li">
                 <a
                   href={"https://www.themoviedb.org/movie/" + this.state.data.tmdbID}
                   rel="noreferrer"
@@ -97,14 +107,14 @@ class Found extends Component {
                   TMDB
                 </a>
               </li>
-              <li>
+              <li className="found_li">
                 <b className="White">{this.reFormat(this.state.data.tmdbRating)}</b> <b className="Rating">/10</b>
               </li>
             </ul>
           </div>
         </div>
         <div className="blur_back">
-          <img src={this.state.data.backdropURLs[1280]} alt="Failed" />
+          <img src={this.state.data.backdropURLs[1280]} alt="shorturl.at/hmqzK" />
         </div>
       </div>
     );

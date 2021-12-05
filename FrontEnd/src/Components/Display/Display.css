@@ -113,13 +113,13 @@ body {
       padding-bottom: 20px; 
     }
 
-    ul {
+    .diplay_ul {
         list-style: none;
         padding: 0;
       
       }
 
-  li {
+    .display_li {
     display: inline-block;
     color: rgba(255, 255, 255, 0.4);
     transition: color 0.3s;
@@ -127,12 +127,12 @@ body {
     margin: 0 10px;
   }
 
-  i {
+  .display_i {
     font-size: 19px;
     cursor: pointer;
   }
 
-  li:hover {
+  .display_li:hover {
     transition: color 0.3s;
     color: rgba(255, 255, 255, 0.8);
   }
