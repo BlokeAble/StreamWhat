@@ -21,7 +21,7 @@ class Found extends Component {
           <div className="movie_desc">
             <p className="text">
               {" "}
-              Nothing was found therefore there is no overview
+              Nothing was found therefore there is no
             </p>
           </div>
         </div>

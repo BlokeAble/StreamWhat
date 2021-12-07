@@ -27,3 +27,20 @@
   height: 100px;
   
 }
+
+.RemoveList{
+  position: absolute;
+  margin-top: 45px;
+  top: 0px;
+  left: calc(100vw - 330px);
+}
+
+label{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 20px;
+}
+
+.pickService{
+  margin: 10px auto;
+}

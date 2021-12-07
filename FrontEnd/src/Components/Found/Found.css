@@ -41,9 +41,13 @@ body {
 }
 
 .movieTitle{
-  color: #fff;
-  font-size: 15px;
+  text-decoration: overline;
+  text-decoration-color: #ffff;
+  color: #d4af37;
+  font-size: 20px;
+  font-weight: bold;
 }
+
 .movie_card {
   position: relative;
   display: block;
@@ -53,10 +57,17 @@ body {
   overflow: hidden;
   border-radius: 10px;
   transition: all 0.4s;
-  border-style: outset;
-  border-color: #006616;
+  border-style:groove;
+  border-color: #d4af37;
   border-width: 6px;
   }
+
+  .movie_card:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 80px -25px rgba(255, 255, 255, 0.8);
+    transition: all 0.4s;
+  }
+  
 
 
   .info_section {

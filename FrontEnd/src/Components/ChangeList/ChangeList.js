@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./ChangeList.css"
 
 class ChangeList extends Component {
   constructor(props) {
@@ -25,11 +26,8 @@ class ChangeList extends Component {
   handleDate(date){
     if(date !== 0)
     {
-      var day = new Date(date).getDay();
-      var month = new Date(date).getDate();
-      var year= new Date(date).getFullYear();
-      var time = day+"/"+month+"/"+year;
-      return time
+      var newDate = new Date(date*1e3).toDateString();
+      return newDate;
     }
     else
     {
@@ -40,12 +38,10 @@ class ChangeList extends Component {
 
 render(){
   return (
-  <div className="movie_card">
-     <h1 className="movieTitle">{this.state.data.title}</h1>
+  <div className="movie_con">
+     <h1 className="movieTitleNew" onClick= {()=> window.location.href= `http://localhost:3000/?search=${this.state.data.title}`} >{this.state.data.title}</h1>  
+     <span className="added">Added: {this.handleDate(this.state.data.streamingInfo[this.state.service][this.state.region].added)} </span>
 
-     <span className="added"> {this.handleDate(this.status.data.streamingInfo[this.state.service][this.state.region].added)} </span>
-     <span className="leaving"> {this.handleDate(this.status.data.streamingInfo[this.state.service][this.state.region].leaving)} </span>
-    
   </div>
   );
   

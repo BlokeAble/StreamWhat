@@ -5,6 +5,7 @@ import Found from "../Found/Found";
 import Display from "../Display/Display";
 import Fail from "../Fail/Fail";
 import ChangeList from "../ChangeList/ChangeList";
+import RemovedList from "../ChangeList/RemovedList";
 
 
 
@@ -15,23 +16,26 @@ class Home extends Component {
       value: "",
       service: "netflix",
       output: { results: [] },
-      status: {results:[]},
-      error: null,
-      
+      statusNew: { results: [] },
+      statusRemove: {results: [] },
+      error: false,
     };
 
     this.handleFind = this.handleFind.bind(this);
-    this.handleChanges = this.handleChanges.bind(this);
-    this.changeName = this.handleChanges.bind(this);
+    this.handleNew = this.handleNew.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.changeName = this.changeName.bind(this);
   }
 
-  changeName(name)
+  changeName =(e)=>
   {
-    //this.setState({service: name.target.value});
-    console.log(name);
+    this.setState({service:  e.target.value})
+    this.handleNew();
+    this.handleRemove();
   }
 
-  handleFind() {
+  handleFind() 
+  {
     var axios = require("axios").default;
     var options = {
       method: 'GET',
@@ -56,10 +60,12 @@ class Home extends Component {
       .request(options)
       .then((response) => {
         if (response.data.results[0] === undefined) {
-          console.log("Failure"+this.state.value)
-          this.setState({ error: false, value: "" });
+
+          console.log("Failure "+this.state.value)
+          this.setState({ error: true, value: "" });
+          
         } else {
-          this.setState({ output: response.data, value: "", error: true });
+          this.setState({ output: response.data, value: "", error: false });
         }
       })
       .catch(function (error) {
@@ -67,7 +73,7 @@ class Home extends Component {
       });
   }
 
-  handleChanges()
+  handleNew()
   {
     var axios = require("axios").default;
     var options = {
@@ -84,16 +90,40 @@ class Home extends Component {
         'x-rapidapi-host': 'streaming-availability.p.rapidapi.com',
         'x-rapidapi-key': '2f14d6be09mshd8c22612d1ad919p113dfajsn5138c71b0aef'
       }
+    }
+    axios.request(options).then((response) => {
+        this.setState({ statusNew: response.data});
+      }).catch(function (error) {
+        console.error(error);
+      });
   };
 
-  axios.request(options).then(function (response) {
+  handleRemove()
+  {
+    var axios = require("axios").default;
+    var options = {
+      method: 'GET',
+      url: 'https://streaming-availability.p.rapidapi.com/changes',
+      params: {
+        service: this.state.service,
+        country: 'us',
+        change_type: 'removed',
+        type: 'movie',
+        output_language: 'en'
+      },
+      headers: {
+        'x-rapidapi-host': 'streaming-availability.p.rapidapi.com',
+        'x-rapidapi-key': '2f14d6be09mshd8c22612d1ad919p113dfajsn5138c71b0aef'
+      }
+    }
+    axios.request(options).then((response) => {
+        this.setState({ statusRemove: response.data});
+      }).catch(function (error) {
+        console.error(error);
+      });
+  };
 
-    console.log(response.data);
-    this.setState({ status: response.data});
-  }).catch(function (error) {
-    console.error(error);
-  });
-}
+
 
   componentDidMount()
   {
@@ -101,9 +131,15 @@ class Home extends Component {
     if(search !== null)
     {
       this.setState({value: search}, this.handleFind);
+
+    }
+
+    if(this.state.service != null)
+    {
+      this.handleNew();
+      this.handleRemove();
     }
   }
-
 
 
   render() {
@@ -116,7 +152,7 @@ class Home extends Component {
                 action=""
                 onSubmit={(e) => {
                   e.preventDefault();
-                  this.handleFind();
+                  window.location.href= `http://localhost:3000/?search=${this.state.value}`
                 }}
               >
                   <input
@@ -146,10 +182,9 @@ class Home extends Component {
 
         <div className="changeList">
         
-        <h1> Pick A Serivce: </h1>
-        <h1>{this.state.service}</h1>
-        
-        <select  onChange={this.changeName} name="serviceNames" id="serivceList">
+        <form className="pickService">
+          <label> Pick A Serivce: </label>
+          <select  onChange={this.changeName} name="serviceNames" id="serivceList">
           <option value="netflix">Netflix</option>
           <option value="hulu">Hulu</option>
           <option value="apple">Apple</option>
@@ -161,12 +196,24 @@ class Home extends Component {
           <option value="starz">Starz</option>
           <option value="showtime">Showtime</option>
         </select>
+        </form>        
 
+        <h1>Recently Added</h1>
          { 
-         this.state.status.results.map((data, i) => (
+         this.state.statusNew.results.map((data, i) => (
               <ChangeList data={data} key={i} />
           ))
          } 
+         
+         <div className="RemoveList">
+          <h1>Recently Removed</h1>
+         { 
+         this.state.statusRemove.results.map((data, i) => (
+              <RemovedList data={data} key={i} />
+          ))
+         } 
+         </div>
+       
         </div>
       </div>
     );
