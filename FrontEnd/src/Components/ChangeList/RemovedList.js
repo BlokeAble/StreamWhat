@@ -44,7 +44,7 @@ render(){
      <h1 className="movieTitleRemove">{this.state.data.title}</h1>  
      {
      ()=>{
-      if(this.service == "0")
+      if(this.service === "0")
       {
         return <span>Gone</span>
       }
